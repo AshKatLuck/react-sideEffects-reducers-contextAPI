@@ -38,12 +38,12 @@ const Login = () => {
 
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
     value: "",
-    isValid: false,
+    isValid: null,
   });
 
   const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
     value: "",
-    isValid: false,
+    isValid: null,
   });
   const { isValid: isEmailValid } = emailState;
   const { isValid: isPasswordValid } = passwordState;
