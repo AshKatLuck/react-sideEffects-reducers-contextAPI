@@ -47,18 +47,20 @@ const Login = (props) => {
   //     console.log('EFFECT CLEANUP');
   //   };
   // }, []);
+  const { isValid: isEmailValid } = emailState;
+  const { isValid: isPasswordValid } = passwordState;
 
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("Checking form validity!");
-      setFormIsValid(emailState.isValid && passwordState.isValid);
+      setFormIsValid(isEmailValid && isPasswordValid);
     }, 500);
 
     return () => {
       console.log("CLEANUP");
       clearTimeout(identifier);
     };
-  }, [emailState, passwordState]);
+  }, [isEmailValid, isPasswordValid]);
 
   const emailChangeHandler = (event) => {
     // setEnteredEmail(event.target.value);
